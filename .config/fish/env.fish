@@ -21,4 +21,5 @@ set -gx HISTFILE $XDG_CONFIG_HOME/history
 set -gx MBSYNCRC $XDG_CONFIG_HOME/mbsync/config
 set -gx ELECTRUMDIR $XDG_CONFIG_HOME/electrum
 set -gx PYTHONSTARTUP $XDG_CONFIG_HOME/python/pythonrc
+set -gx RIPGREP_CONFIG_PATH $XDG_CONFIG_HOME/ripgrep/ripgreprc
 set -gx SQLITE_HISTORY $XDG_DATA_HOME/sqlite_history

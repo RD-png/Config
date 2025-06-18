@@ -124,7 +124,9 @@
 
 (use-package rg
   :ensure t
-  :defer 3)
+  :defer 3
+  :config
+  (setq rg-ignore-ripgreprc nil))
 
 (use-package fzf
   :ensure t

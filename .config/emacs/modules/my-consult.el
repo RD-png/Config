@@ -41,6 +41,7 @@
   :init
   (setq register-preview-delay 0
         register-preview-function #'consult-register-format)
+  (setq consult-ripgrep-args "rg --hidden --smart-case --glob=!.git/* --null --line-buffered --color=never --max-columns=1000 --path-separator /  --no-heading --with-filename --line-number --search-zip")
   ;; (advice-add #'completing-read-multiple :override #'consult-completing-read-multiple)
   )
 
