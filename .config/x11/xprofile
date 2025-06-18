@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Laptop
+# xrandr --output eDP --dpi 144
+
+# Desktop
+xrandr --output DisplayPort-0 --primary --mode 2560x1440 --rate 280 --dpi 120
+xrandr --output DisplayPort-1 --mode 1920x1080 --rate 144
+
+autostart="lxsession lxqt-powermanagement dunst pipewire volumeicon"
+for program in $autostart; do
+	pidof -sx "$program" || "$program" &
+done >/dev/null 2>&1
+
+nitrogen --restore
+picom --backend glx --config $XDG_CONFIG_HOME/picom/picom.conf &

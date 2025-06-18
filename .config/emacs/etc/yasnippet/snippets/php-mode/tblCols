@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: tbCols
+# key: tbCols
+# --
+"SELECT m.name as table_name, GROUP_CONCAT(p.name) as column_name FROM sqlite_master as m JOIN pragma_table_info(m.name) as p GROUP BY m.name"

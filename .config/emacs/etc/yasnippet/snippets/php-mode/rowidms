@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: rowidms
+# key: rowidms
+# --
+$sql = "SELECT ${1:column}, @rowid:=@rowid+1 as rowid FROM ${2:table}, (SELECT @rowid:=0) r";
+$${3:result} = $${4:database}->query($sql);
+$$3  = $$3->fetchAll(PDO::FETCH_${5:type});

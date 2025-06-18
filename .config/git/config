@@ -1,0 +1,7 @@
+[credential]
+	helper = store
+[user]
+	email = ryan.543@live.co.uk
+	name = Ryan Denby
+[merge]
+	conflictstyle = diff3

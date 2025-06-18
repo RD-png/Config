@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: template
+# key: template
+# --
+<template>
+</template>
+
+<script setup>
+
+</script>
+
+<style scoped>
+
+</style>

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: sel
+# key: sel
+# --
+$sql = "SELECT $1 FROM ${2:table}";
+$${3:result} = $${4:database}->query($sql)->fetchAll(PDO::FETCH_${5:type});

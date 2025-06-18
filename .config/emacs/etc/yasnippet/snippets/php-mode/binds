@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: binds
+# key: binds
+# --
+$sql = "PRAGMA table_info('${1:table}')";
+$${2:binds} = $${3:database}->query($sql);
+$$2 = $$2->fetchAll(PDO::FETCH_ASSOC);
+$$2 = ":" . implode(",:", array_column($$2, 'name'));

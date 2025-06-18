@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: bindsms
+# key: bindsms
+# --
+$sql = "SHOW COLUMNS FROM ${1:table}";
+$${2:columns} = $${3:database}->query($sql);
+$$2 = $$2->fetch_all(MYSQLI_ASSOC);
+$$2 = array_column($$2, 'Field');
+$${4:binds}   = ":" . implode(",:", $$2);
+$$2 = implode(",", $$2);

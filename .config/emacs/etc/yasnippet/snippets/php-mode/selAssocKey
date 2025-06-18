@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: selAssocKey
+# key: selAssocKey
+# --
+$sql = "SELECT ${1:AssocKey} FROM ${2:table}";
+$${3:result} = $${4:database}->query($sql)->fetchAll(PDO::FETCH_GROUP | PDO::FETCH_UNIQUE | PDO::FETCH_ASSOC);

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: strtime
+# key: strtime
+# --
+$${1: name} = date_create($${2:value}, new DateTimeZone('GMT'));
+$$1 = $$1->format('U');

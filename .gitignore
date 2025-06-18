@@ -1,0 +1,7 @@
+.config/emacs/eln-cache/
+.config/emacs/var/
+.config/emacs/.emacs.desktop
+.config/emacs/elpaca
+.config/emacs/auto-save-list/
+.config/qtile/__pycache__/
+.config/fish/fish_variables

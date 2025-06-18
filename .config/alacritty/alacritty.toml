@@ -1,0 +1,131 @@
+general.import = ["~/.config/alacritty/modus-active.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 16
+
+[font.normal]
+family = "Fantasque Sans Mono"
+style = "Normal"
+
+[[keyboard.bindings]]
+action = "ScrollLineUp"
+key = "P"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollLineDown"
+key = "N"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "V"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "V"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key = "V"
+mods = "Alt|Shift"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "SearchBackward"
+key = "S"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "SearchConfirm"
+key = "Return"
+mode = "Search"
+
+[[keyboard.bindings]]
+action = "SearchCancel"
+key = "G"
+mode = "Search"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "SearchCancel"
+key = "C"
+mode = "Search"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "SearchClear"
+key = "U"
+mode = "Search"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "SearchDeleteWord"
+key = "Back"
+mode = "Search"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "SearchHistoryPrevious"
+key = "P"
+mode = "Search"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "SearchHistoryNext"
+key = "N"
+mode = "Search"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "SearchHistoryPrevious"
+key = "Up"
+mode = "Search"
+
+[[keyboard.bindings]]
+action = "SearchHistoryNext"
+key = "Down"
+mode = "Search"
+
+[[keyboard.bindings]]
+action = "SearchFocusNext"
+key = "P"
+mode = "Search"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "SearchFocusPrevious"
+key = "N"
+mode = "Search"
+mods = "Control"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[window]
+decorations = "full"
+opacity = 1.0
+
+[window.padding]
+x = 10
+y = 10
