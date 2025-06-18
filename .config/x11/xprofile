@@ -7,6 +7,9 @@
 xrandr --output DisplayPort-0 --primary --mode 2560x1440 --rate 280 --dpi 120
 xrandr --output DisplayPort-1 --mode 1920x1080 --rate 144
 
+# Devices
+xinput set-prop 10 "libinput Scroll Method Enabled" 0, 0, 1
+
 autostart="lxsession lxqt-powermanagement dunst pipewire volumeicon"
 for program in $autostart; do
 	pidof -sx "$program" || "$program" &
