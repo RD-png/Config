@@ -73,7 +73,7 @@ keys = [
     Key([mod], "d", lazy.spawn("rofi -show drun -dpi 0")),
     Key([mod], "s", lazy.spawn("rofi -show window -dpi 0")),
     Key([mod], "w", lazy.spawn("brave")),
-    Key([mod, "shift"], "d", lazy.spawn("discord")),
+    Key([mod, "shift"], "d", lazy.spawn("vesktop")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --allow-boost -i 10")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer -d 10")),
     Key([], "XF86AudioMute", lazy.spawn("pamixer -t")),
