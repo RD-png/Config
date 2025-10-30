@@ -84,15 +84,6 @@
   :ensure t
   :defer 5)
 
-(use-package nix-mode
-  :ensure t
-  :mode "\\.nix\\'"
-  :hook (nix-mode . my/lsp-hook))
-
-(use-package nix-update
-  :ensure t
-  :commands nix-update-fetch)
-
 (use-package web-mode
   :ensure t
   :mode ("\\.vue\\'")

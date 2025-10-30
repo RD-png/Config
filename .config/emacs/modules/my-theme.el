@@ -98,6 +98,7 @@
 
 (use-package standard-themes
   :ensure (standard-themes :host github :repo "protesilaos/standard-themes")
+  :defer 2
   :preface
   (setq pdf-view-midnight-colors '("#dfdfdf" . "#1d2021"))
   (setq standard-themes-common-palette-overrides '((cursor "IndianRed3")))
