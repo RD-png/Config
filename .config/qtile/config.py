@@ -72,7 +72,7 @@ keys = [
     Key([mod], "s", lazy.spawn("rofi -show window - dpi 0")),
     Key([mod], "d", lazy.spawn("rofi -show drun -dpi 0")),
     Key([mod], "s", lazy.spawn("rofi -show window -dpi 0")),
-    Key([mod], "w", lazy.spawn("brave")),
+    Key([mod], "w", lazy.spawn("firefox")),
     Key([mod, "shift"], "d", lazy.spawn("vesktop")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --allow-boost -i 10")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer -d 10")),
@@ -159,7 +159,7 @@ keys.extend(
 )
 
 widget_defaults = dict(
-    fontsize=25,
+    fontsize=30,
     font="fantasquesansmono",
     padding=2,
 )
@@ -202,7 +202,8 @@ screens = [
                     padding=20,
                     size_percent=50,
                 ),
-                widget.CurrentLayoutIcon(
+                widget.CurrentLayout(
+                    mode='icon',
                     foreground=colors[0]
                 ),
                 widget.Sep(
@@ -221,7 +222,7 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.Systray(
-                    icon_size=22,
+                    icon_size=40,
                     padding=20
                 ),
                 widget.Sep(
@@ -287,7 +288,7 @@ screens = [
                     size_percent=50,
                 ),
             ],
-            size=27,
+            size=35,
         ),
     ),
     Screen(
