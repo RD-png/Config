@@ -246,7 +246,7 @@ screens = [
                     size_percent=50,
                 ),
                 widget.TextBox(
-                    text="",
+                    text="",
                     font="Font Awesome 5 Free Solid",
                     foreground=colors[6],
                 ),
@@ -327,7 +327,7 @@ screens = [
                     size_percent=50,
                 ),
                 widget.TextBox(
-                    text="",
+                    text="",
                     font="Font Awesome 5 Free Solid",
                     foreground=colors[6],
                 ),
