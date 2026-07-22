@@ -243,12 +243,6 @@ screens = [
                     padding=20,
                     size_percent=50,
                 ),
-                widget.TextBox(
-                    foreground=colors[9],
-                    text=" ",
-                    font="Font Awesome 5 Free Solid",
-                ),
-                widget.PulseVolume(),
                 widget.Sep(
                     linewidth=0,
                     padding=20,
@@ -312,7 +306,7 @@ screens = [
                     size_percent=50,
                 ),
             ],
-            size=35,
+            size=40,
         ),
     ),
     Screen(
