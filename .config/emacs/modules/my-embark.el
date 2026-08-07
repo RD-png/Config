@@ -24,7 +24,7 @@
   :bind (:map minibuffer-local-map
               ("C-c C-o" . embark-export))
   :bind*
-  ("C-o" . embark-act)
+  ("C-c o" . embark-act)
   ("C-h h" . embark-bindings))
 
 (use-package embark-consult

@@ -285,7 +285,6 @@
 (global-set-key (kbd "C-M-<return>") #'vterm)
 (global-set-key (kbd "C-S-k") #'kill-whole-line)
 (global-set-key (kbd "C-x c e")  #'dashboard-refresh-buffer)
-(global-set-key (kbd "C-c o g")  #'xref-find-definitions)
 (global-set-key (kbd "C-/")  #'undo-only)
 (global-set-key (kbd "C-?")  #'undo-redo)
 (global-set-key (kbd "C-S-n")  #'multi-line-next)
@@ -303,6 +302,14 @@
 (global-unset-key  (kbd "M-`"))
 (global-unset-key  (kbd "C-z"))
 (global-unset-key  (kbd "C-x C-z"))
+(global-unset-key  (kbd "C-o"))
+
+(use-package xref
+  :ensure nil
+  :hook (xref-after-jump . recenter)
+  :bind (("C-o g" . xref-find-definitions)
+         ("C-o r" . xref-find-references)
+         ("C-o s" . xref-find-apropos)))
 
 (defadvice kill-region (before slick-cut activate compile)
   "When called interactively with no active region, kill a single line instead."

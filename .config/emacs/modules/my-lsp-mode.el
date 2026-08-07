@@ -49,12 +49,12 @@
         orig-result)))
   (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
   :bind (:map lsp-mode-map
-              ("C-c o d" . lsp-describe-thing-at-point)
-              ("C-c o f" . my/lsp-format-buffer)
-              ("C-c o a" . lsp-execute-code-action)
-              ("C-c o R" . lsp-rename)
-              ("C-c o r" . lsp-find-references)
-              ("C-c o g" . lsp-find-definition))
+              ("C-o d" . lsp-describe-thing-at-point)
+              ("C-o f" . my/lsp-format-buffer)
+              ("C-o a" . lsp-execute-code-action)
+              ("C-o R" . lsp-rename)
+              ("C-o r" . lsp-find-references)
+              ("C-o g" . lsp-find-definition))
   :custom
   (lsp-completion-provider :none)
   (lsp-enable-symbol-highlighting nil)
@@ -124,6 +124,6 @@ server getting expensively restarted when reverting buffers."
 (use-package consult-lsp
   :ensure t
   :bind (:map lsp-mode-map
-              ("C-c o l" . consult-lsp-symbols)))
+              ("C-o l" . consult-lsp-symbols)))
 
 (provide 'my-lsp-mode)
