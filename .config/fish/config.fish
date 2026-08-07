@@ -2,7 +2,6 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-source /etc/profile.d/nix.fish
 source $__fish_config_dir/env.fish
 fzf --fish | source
 
