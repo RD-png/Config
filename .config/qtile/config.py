@@ -37,7 +37,7 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, 
 from libqtile.lazy import lazy
 
 mod = "mod4"
-terminal = "alacritty"
+terminal = "wezterm"
 
 
 keys = [
@@ -91,12 +91,6 @@ keys = [
     # Qtile Config Commands
     Key([mod, "shift"], "r", lazy.reload_config()),
     Key([mod, "shift"], "q", lazy.shutdown()),
-    # Misc
-    Key(
-        [mod, "shift"],
-        "t",
-        lazy.spawn(os.path.expanduser("~/.config/Dmenu/scripts/alac-theme")),
-    ),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -144,7 +138,7 @@ groups.append(
         "scratchpad",
         [
             DropDown(
-                "term", "alacritty", width=0.5, height=0.5, x=0.275, y=0.2, opacity=1
+                "term", "wezterm", width=0.5, height=0.5, x=0.275, y=0.2, opacity=1
             ),
         ],
     )
