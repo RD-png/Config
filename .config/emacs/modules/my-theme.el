@@ -116,7 +116,7 @@
                                           (string "DarkOliveGreen3")
                                           (cyan magenta-faint)))
   :init
-  (load-theme 'standard-light t))
+  (load-theme 'standard-dark t))
 
 (use-package ligature
   :ensure (ligature :host github :repo "mickeynp/ligature.el")

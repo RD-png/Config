@@ -29,8 +29,6 @@
 
 (use-package embark-consult
   :ensure t
-  :demand t
-  :hook
-  (embark-collect-mode . embark-consult-preview-minor-mode))
+  :demand t)
 
 (provide 'my-embark)

@@ -2,6 +2,7 @@
 
 (use-package point-history
   :ensure (point-history :host github :repo "blue0513/point-history")
+  :disabled t
   :bind
   ("C-c h" . point-history-show)
   (:map point-history-show-mode-map
@@ -17,6 +18,13 @@
   (advice-add 'consult-line :before 'point-history-set-point)
   :init
   (point-history-mode t))
+
+(use-package bungee
+  :ensure (bungee :host github :repo "RD-png/bungee")
+  :bind ("C-S-E" . bungee-history)
+  :init
+  (setq bungee-save-before-functions (append '(consult-ripgrep consult-line)
+                                             bungee-save-before-functions)))
 
 (use-package wgrep
   :ensure t

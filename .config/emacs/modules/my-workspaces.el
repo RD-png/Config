@@ -96,7 +96,7 @@
                            :as #'buffer-name)))
     "Local buffer candidate source for `consult-buffer'.")
 
-  (setq consult-buffer-sources '(consult--source-hidden-buffer
+  (setq consult-buffer-sources '(consult-source-hidden-buffer
                                  my-consult--source-buffer
                                  my-consult--source-local-buffer))
   (setq bufferlo-include-buffer-filters '("^\\*\\Messages" "^\\*Warnings"))
