@@ -5,6 +5,7 @@ local config = wezterm.config_builder()
 config.enable_tab_bar = false
 config.term = 'xterm-256color'
 config.colors = require 'modus'
+config.warn_about_missing_glyphs = false
 -- config.bold_brightens_ansi_colors = "No"
 
 config.font = wezterm.font('Fantasque Sans Mono')
