@@ -29,7 +29,7 @@
          ([remap list-buffers] . consult-buffer)
          ("C-c o l" . consult-imenu)
          ("C-c o L" . consult-imenu-multi)
-         ("C-M-s" . consult-multi-occur)
+         ("C-M-s" . consult-line-multi)
          ("C-M-l" . consult-outline)
          ("M-g M-g" . goto-line)
          ("C-c f" . consult-flymake)

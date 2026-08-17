@@ -58,7 +58,9 @@
 
 (use-package bufferlo
   :ensure t
-  :bind (("C-x k" . bufferlo-kill-buffer))
+  :bind (("C-x k" . bufferlo-kill-buffer)
+         ("C-c s b" . bufferlo-find-buffer-switch)
+         ("C-c s k" . bufferlo-tab-close-kill-buffers))
   :preface
   (defun bufferlo-kill-buffer (buffer)
     (interactive
@@ -69,36 +71,32 @@
          (lambda (b) (member (if (stringp b) b (car b)) lbs))))))
     (kill-buffer buffer))
   :config
-  (defvar my-consult--source-buffer
-    `(:name "All Buffers"
-            :narrow   ?a
-            :hidden   t
-            :category buffer
-            :face     consult-buffer
-            :history  buffer-name-history
-            :state    ,#'consult--buffer-state
-            :items ,(lambda () (consult--buffer-query
-                           :sort 'visibility
-                           :as #'buffer-name)))
-    "All buffer candidate source for `consult-buffer'.")
+  (defvar my-consult--source-local-buffers
+    (list :name "Local Buffers"
+          :narrow   ?l
+          :category 'buffer
+          :face     'consult-buffer
+          :history  'buffer-name-history
+          :state    #'consult--buffer-state
+          :items (lambda () (consult--buffer-query
+                        :predicate #'bufferlo-local-buffer-p
+                        :sort 'visibility
+                        :as #'buffer-name))))
 
-  (defvar my-consult--source-local-buffer
-    `(:name nil
-            :narrow   ?b
-            :category buffer
-            :face     consult-buffer
-            :history  buffer-name-history
-            :state    ,#'consult--buffer-state
-            :default  t
-            :items ,(lambda () (consult--buffer-query
-                           :predicate #'bufferlo-local-buffer-p
-                           :sort 'visibility
-                           :as #'buffer-name)))
-    "Local buffer candidate source for `consult-buffer'.")
+  (defvar my-consult--source-all-buffers
+    (list :name "All Buffers"
+          :narrow   ?a
+          :category 'buffer
+          :face     'consult-buffer
+          :history  'buffer-name-history
+          :state    #'consult--buffer-state
+          :items (lambda () (consult--buffer-query
+                        :predicate #'bufferlo-non-local-buffer-p
+                        :sort 'visibility
+                        :as #'buffer-name))))
 
-  (setq consult-buffer-sources '(consult-source-hidden-buffer
-                                 my-consult--source-buffer
-                                 my-consult--source-local-buffer))
+  (add-to-list 'consult-buffer-sources 'my-consult--source-all-buffers)
+  (add-to-list 'consult-buffer-sources 'my-consult--source-local-buffers)
   (setq bufferlo-include-buffer-filters '("^\\*\\Messages" "^\\*Warnings"))
 
   :init
