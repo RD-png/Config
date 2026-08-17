@@ -294,6 +294,7 @@
 (global-set-key [remap org-cycle-agenda-files] 'ignore)
 (global-set-key (kbd "C-v") #'my/scroll-up)
 (global-set-key (kbd "M-v") #'my/scroll-down)
+(global-set-key (kbd "C-x K") #'kill-buffer-and-window)
 (bind-key* "C-<backspace>" #'my/backward-kill-word)
 
 

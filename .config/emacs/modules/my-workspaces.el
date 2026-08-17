@@ -69,7 +69,7 @@
         (read-buffer
          "Kill local buffer: " (current-buffer) nil
          (lambda (b) (member (if (stringp b) b (car b)) lbs))))))
-    (kill-buffer buffer))
+    (bufferlo-remove buffer))
   :config
   (defvar my-consult--source-local-buffers
     (list :name "Local Buffers"
