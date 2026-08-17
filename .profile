@@ -10,10 +10,9 @@ xrandr --output eDP --dpi 144
 # Devices
 xinput set-prop 10 "libinput Scroll Method Enabled" 0, 0, 1
 
-autostart="lxsession dunst udiskie"
+autostart="picom dunst udiskie pipewire"
 for program in $autostart; do
 	pidof -sx "$program" || "$program" &
 done >/dev/null 2>&1
 
 nitrogen --restore
-picom --backend glx --config $XDG_CONFIG_HOME/picom/picom.conf &

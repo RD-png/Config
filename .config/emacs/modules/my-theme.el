@@ -1,11 +1,10 @@
 ;;; my-theme.el -*- lexical-binding: t; -*-
 
 ;;; Font.
-(defvar default-font-size 120)
-(defvar default-variable-font-size 110)
+(defvar default-font-size 130)
+(defvar default-variable-font-size 120)
 (set-face-attribute 'default nil
                     :font "Fantasque Sans Mono"
-                    :foundry "PfEd"
                     :slant 'normal
                     :weight 'normal
                     :width 'normal
@@ -43,8 +42,8 @@
           (border-mode-line-active unspecified)
           (border-mode-line-inactive unspecified)
           (bg-line-number-inactive unspecified)
-          (bg-prompt bg-blue-nuanced)
-          (fg-prompt blue-warmer)
+          (bg-prompt bg-green-nuanced)
+          ;; (fg-prompt blue-warmer)
           (fg-heading-1 blue-faint)
           (fg-heading-2 "DarkGoldenrod2")
           (fg-heading-3 "PaleVioletRed1")
@@ -59,12 +58,20 @@
                                 (t . (regular 1.15)))
         modus-themes-region '(no-extend accented bg-only)
 
-        modus-operandi-palette-overrides `((bg-main "#f4f0ec")
+        modus-operandi-palette-overrides `((bg-main "#fff5ee")
                                            (fg-line-number-active "#0000b0")
+                                           (bg-mode-line-active bg-blue-intense)
                                            (comment red-faint)
                                            (string olive)
                                            ;; ,@modus-themes-preset-overrides-warmer
                                            )
+
+        modus-operandi-tinted-palette-overrides `((bg-main "#fff5ee")
+                                                  (comment red-faint)
+                                                  (docstring red-faint)
+                                                  (string olive)
+                                                  ;; (yellow-cooler maroon)
+                                                  )
 
         modus-vivendi-deuteranopia-palette-overrides '((bg-main "#1d2021")
                                                        (fg-main "#dfdfdf")
@@ -74,8 +81,9 @@
                                                        (magenta-warmer pink)
                                                        (cyan slate)
                                                        (blue-cooler blue-warmer)
-                                                       (fg-line-number-active "#79a8ff")))
-  (load-theme 'modus-vivendi-deuteranopia t))
+                                                       (fg-line-number-active "#79a8ff")
+                                                       ))
+  (load-theme 'modus-operandi-tinted t))
 
 (use-package ef-themes
   :ensure t
@@ -98,6 +106,7 @@
 
 (use-package standard-themes
   :ensure (standard-themes :host github :repo "protesilaos/standard-themes")
+  ;; :disabled t
   :defer 2
   :preface
   (setq pdf-view-midnight-colors '("#dfdfdf" . "#1d2021"))
@@ -105,7 +114,8 @@
   (setq standard-light-palette-overrides '((bg-main "#fff5ee")
                                            (fringe "#fff5ee")
                                            (fg-line-number-active "#0000b0")
-                                           (bg-mode-line-active "#d0d6ff")
+                                           (bg-mode-line-active "#bfc9ff")
+                                           (docstring red-faint)
                                            (string "#316500")))
   (setq standard-dark-palette-overrides '((bg-main "#1d2021")
                                           (fg-main "#dfdfdf")
@@ -116,7 +126,7 @@
                                           (string "DarkOliveGreen3")
                                           (cyan magenta-faint)))
   :init
-  (load-theme 'standard-dark t))
+  (load-theme 'standard-light t))
 
 (use-package ligature
   :ensure (ligature :host github :repo "mickeynp/ligature.el")

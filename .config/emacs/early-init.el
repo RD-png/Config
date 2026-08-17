@@ -1,6 +1,7 @@
 ;;; early-init.el -*- lexical-binding: t; -*-
 
-(setq gc-cons-threshold most-positive-fixnum)
+(setq gc-cons-percentage 0.5
+      gc-cons-threshold (* 128 1024 1024))
 (setq native-comp-deferred-compilation nil)
 (setq package-enable-at-startup nil)
 (setq load-prefer-newer noninteractive)
