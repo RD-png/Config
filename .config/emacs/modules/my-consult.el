@@ -16,7 +16,7 @@
   (consult-line-start-from-top nil)
   (consult-line-point-placement 'match-end)
   (fset 'multi-occur #'consult-multi-occur)
-  :bind (([remap yank-pop] . consult-yank-pop)
+  :bind (([remap yank-pop] . consult-yank-from-kill-ring)
          ([remap apropos] . consult-apropos)
          ([remap bookmark-jump] . consult-bookmark)
          ([remap goto-line] . consult-goto-line)

@@ -74,9 +74,11 @@
                              (?o . avy-action-embark)))
   :custom
   (avy-single-candidate-jump nil)
+  :bind
+  ("M-j" . avy-goto-word-0-above)
+  ("M-m" . avy-goto-word-0-below)
   :bind*
-  ("C-j" . avy-goto-char-timer)
-  ("M-m" . avy-goto-word-0))
+  ("C-j" . avy-goto-char-timer))
 
 ;;;###autoload
 (defun avy-action-kill-whole-line (pt)

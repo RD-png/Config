@@ -30,49 +30,47 @@
   :config
   (global-anzu-mode +1))
 
-(use-package paredit
+(use-package smartparens
   :ensure t
+  :bind
+  ("C-M-w" . sp-copy-sexp)
+  ("C-M-k" . sp-kill-sexp)
+  ("C-M-n" . sp-next-sexp)
+  ("C-M-p" . sp-backward-parallel-sexp)
+  ("C-M-k" . sp-kill-hybrid-sexp)
+  ((:map smartparens-mode-map
+           ("M-["           . sp-backward-slurp-sexp)
+           ("M-]"           . sp-forward-slurp-sexp)
+           ("M-{"           . sp-backward-barf-sexp)
+           ("M-}"           . sp-forward-barf-sexp)
+           ("M-U"           . sp-raise-sexp)
+           ("M-R"           . raise-sexp)
+           ("M-C"           . sp-convolute-sexp)
+           ("M-D"           . my/sp-duplicate-sexp)
+           ("M-J"           . sp-join-sexp)
+           ("M-S"           . sp-split-sexp)
+           ("C-M-<up>"      . sp-raise-sexp)
+           ("C-<right>"     . sp-forward-slurp-sexp)
+           ("C-<left>"      . sp-backward-slurp-sexp)
+           ("M-<right>"     . sp-forward-barf-sexp)
+           ("M-<left>"      . sp-backward-barf-sexp)
+           ("M-K"           . sp-kill-hybrid-sexp)
+           ("C-M-n"         . sp-next-sexp)
+           ("C-M-p"         . sp-backward-parallel-sexp)
+           ("C-M-f"         . sp-forward-sexp)
+           ("C-M-b"         . sp-backward-sexp)
+           ))
   :config
-  (defun my/paredit-forward-down ()
-    (interactive)
-    (sp-down-sexp)
-    (sp-next-sexp))
-
-  (defun my/paredit-start-of-sexp ()
-    (interactive)
-    (when (not (= ?\( (following-char)))
-      (progn
-        (sp-end-of-sexp)
-        (sp-forward-sexp)))
-    (backward-sexp))
-
-  (defun my/paredit-end-of-sexp ()
-    (interactive)
-    (when (not (= ?\( (following-char)))
-      (progn
-       (sp-beginning-of-sexp)
-       (sp-backward-sexp)))
-    (forward-sexp)
-    (backward-char))
-
-  (setcdr paredit-mode-map nil)
-  :bind ((:map paredit-mode-map
-               ("C-M-n" . sp-next-sexp)
-               ("C-M-p" . paredit-backward)
-               ("C-M-d" . sp-down-sexp)
-               ("C-M-u" . sp-up-sexp)
-               ("C-M-f" . sp-forward-sexp)
-               ("C-M-b" . sp-backward-sexp)
-               ("C-M-a" . my/paredit-start-of-sexp)
-               ("C-M-e" . my/paredit-end-of-sexp)
-               ("M-[" . paredit-backward-slurp-sexp)
-               ("M-]" . paredit-forward-slurp-sexp)
-               ("M-{" . paredit-backward-barf-sexp)
-               ("M-}" . paredit-forward-barf-sexp)
-               ("C-M-r" . paredit-raise-sexp)
-               ("M-j" . paredit-join-sexp)
-               ("C-M-o" . paredit-splice-sexp)
-               ("C-k" . paredit-kill))))
+  (setq sp-highlight-pair-overlay nil
+        sp-highlight-wrap-overlay nil
+        sp-highlight-wrap-tag-overlay nil)
+  (setq sp-max-prefix-length 25)
+  (setq sp-max-pair-length 4)
+  (setq sp-show-pair-from-inside t)
+  (setq sp-cancel-autoskip-on-backward-movement nil)
+  (setq sp-navigate-consider-symbols nil)
+  (sp-local-pair '(emacs-lisp-mode scheme-mode clojure-mode cider-repl-mode) "'" "'" :actions nil)
+  (sp-local-pair '(emacs-lisp-mode scheme-mode clojure-mode cider-repl-mode) "`" "`" :actions nil))
 
 (use-package evil-nerd-commenter
   :ensure t

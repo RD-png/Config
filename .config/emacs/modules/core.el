@@ -215,10 +215,8 @@ possible."
 
 (use-package helpful
   :ensure t
-  :commands helpful--read-symbol
   :hook (helpful-mode . visual-line-mode)
   :init
-  (setq apropos-do-all t)
   (global-set-key [remap describe-function] #'helpful-callable)
   (global-set-key [remap describe-command]  #'helpful-command)
   (global-set-key [remap describe-variable] #'helpful-variable)
@@ -229,25 +227,6 @@ possible."
   :ensure t
   :init
   (add-hook 'Info-selection-hook 'info-colors-fontify-node))
-
-(use-package smartparens
-  :ensure t
-  :bind
-  ("C-M-w" . sp-copy-sexp)
-  ("C-M-k" . sp-kill-sexp)
-  :config
-  (setq sp-highlight-pair-overlay nil
-        sp-highlight-wrap-overlay nil
-        sp-highlight-wrap-tag-overlay nil)
-  (setq sp-max-prefix-length 25)
-  (setq sp-max-pair-length 4)
-  (setq sp-show-pair-from-inside t)
-  (setq sp-cancel-autoskip-on-backward-movement nil)
-  (setq sp-navigate-consider-symbols nil)
-  (sp-local-pair '(emacs-lisp-mode scheme-mode clojure-mode cider-repl-mode) "'" "'" :actions nil)
-  (sp-local-pair '(emacs-lisp-mode scheme-mode clojure-mode cider-repl-mode) "`" "`" :actions nil)
-  :init
-  (smartparens-global-mode +1))
 
 (use-package exec-path-from-shell
   :ensure t
