@@ -39,7 +39,9 @@
 (use-package desktop
   :ensure nil
   :config
-  (setq desktop-auto-save-timeout 5)
+  (setq desktop-auto-save-timeout 120
+        desktop-save t
+        desktop-load-locked-desktop t)
   :init
   (desktop-save-mode))
 

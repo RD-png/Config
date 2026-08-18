@@ -152,26 +152,9 @@
   :hook ((prog-mode conf-mode) . highlight-numbers-mode)
   :config (setq highlight-numbers-generic-regexp "\\_<[[:digit:]]+\\(?:\\.[0-9]*\\)?\\_>"))
 
-(setq image-animate-loop t)
-
-(use-package dashboard
-  :ensure t
-  :bind
-  ("C-x c e" . dashboard-refresh-buffer)
-  :config
-  (setq dashboard-startup-banner 'official)
-  (setq dashboard-set-footer nil)
-  (setq dashboard-items '((recents  . 10)
-                          (bookmarks . 5)))
-  (setq dashboard-banner-logo-title "")
-  (setq dashboard-set-file-icons t)
-  ;; :init
-  ;; (dashboard-setup-startup-hook)
-  )
-
 (use-package popper
   :ensure t
-  :bind (("C-x C-." . popper-toggle-latest)
+  :bind (("C-x C-." . popper-toggle)
          ("C-x M-." . popper-kill-latest-popup)
          ("C-x C-/" . popper-cycle)
          ("C-x C-;" . popper-toggle-type))

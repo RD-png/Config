@@ -1,7 +1,5 @@
 ;;; my-langs.el -*- lexical-binding: t; -*-
 
-(setq font-lock-maximum-decoration '((t . t)))
-
 ;;;###autoload
 (defun mode-unicode-conversions (modes unicode-chars)
   (mapc (lambda (mode)
@@ -34,6 +32,7 @@
 
 (use-package conf-mode
   :ensure nil
+  :defer t
   :hook (conf-mode . display-line-numbers-mode))
 
 (use-package php-mode
@@ -43,18 +42,22 @@
 
 (use-package markdown-mode
   :ensure t
+  :defer t
   :hook (markdown-mode . display-line-numbers-mode))
 
 (use-package ts
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package htmlize
   :ensure t
+  :defer t
   :config
   (setq org-html-htmlize-output-type 'css))
 
 (use-package pip-requirements
   :ensure t
+  :defer t
   :config
   (add-hook 'pip-requirements-mode-hook #'pip-requirements-auto-complete-setup))
 
@@ -72,17 +75,18 @@
 
 (use-package pyimport
   :ensure t
+  :defer t
   :after python-mode)
 
 (use-package pyvenv
   :ensure t
-  :defer 5
+  :defer t
   :config
   (setq pyvenv-menu t))
 
 (use-package python-black
   :ensure t
-  :defer 5)
+  :defer t)
 
 (use-package web-mode
   :ensure t
@@ -129,6 +133,7 @@
 
 (use-package lsp-haskell
   :ensure t
+  :defer
   ;; :config
   ;; (setq lsp-haskell-plugin-ghcide-type-lenses-global-on nil)
   ;; (setq lsp-haskell-plugin-import-lens-code-lens-on nil)
@@ -163,6 +168,7 @@
 
 (use-package geiser
   :ensure t
+  :defer
   :config
   (setq geiser-scheme-implementation 'guile)
   (setq geiser-active-implementations '(guile))
@@ -170,6 +176,7 @@
 
 (use-package geiser-guile
   :ensure t
+  :defer
   :after geiser)
 
 
@@ -189,6 +196,7 @@
 
 (use-package cider
   :ensure t
+  :defer
   :bind ((:map cider-mode-map
                ("C-x C-e" . cider-eval-last-sexp)
                ("C-c C-e" . cider-eval-buffer)
@@ -199,6 +207,7 @@
 
 (use-package go-mode
   :ensure t
+  :defer
   :mode ("\\.go\\'")
   :hook(go-mode . my/lsp-hook)
   :config
@@ -219,7 +228,6 @@
   :mode ("\\.rs$" . rustic-mode)
   :hook (rustic-mode-hook . rustic-lsp-mode-setup)
   :config
-  (setq rustic-lsp-server 'rls)
   (setq rustic-lsp-server 'rustfmt)
   (setq rustic-lsp-client 'lsp-mode)
   (setq rustic-indent-method-chain t))
@@ -241,7 +249,6 @@
          ("C-c C-c" . erlang-shell-rebar-reload)
          ("C-c m s" . erlang-shell-rebar))
   :config
-  (set-font-decoration 'erlang-mode 3)
   (defun erlang-shell-rebar ()
     (interactive)
     (inferior-erlang "make dev"))
@@ -258,6 +265,7 @@
 
 (use-package tuareg
   :ensure t
+  :defer
   :mode ("\\.ml$" . tuareg-mode)
   :bind ((:map tuareg-mode-map
                ("C-c m s" . utop)))
@@ -276,7 +284,8 @@
               ("C-c o r" . merlin-occurrences)))
 
 (use-package utop
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package yaml-mode
   :ensure t
@@ -284,7 +293,6 @@
 
 (use-package latex
   :ensure nil
-  :defer 5
   :after tex
   :mode ("\\.tex\\'" . LaTeX-mode))
 
@@ -293,7 +301,7 @@
 
 (use-package cdlatex
   :ensure nil
-  :defer 5
+  :defer  t
   :after latex
   :hook (LaTeX-mode . turn-on-cdlatex))
 
@@ -304,20 +312,5 @@
   (eldoc-echo-area-prefer-doc-buffer t)
   (eldoc-echo-area-use-multiline-p nil)
   (eldoc-echo-area-display-truncation-message nil))
-
-(use-package devdocs
-  :ensure t
-  :defer 2
-  :config
-  (defun my/devdocs-lookup ()
-    (interactive)
-    (devdocs-lookup nil (thing-at-point 'word 'no-properties)))
-  (add-hook 'web-mode-hook
-            (lambda () (setq-local devdocs-current-docs '("vue~3"))))
-  (add-hook 'python-mode-hook
-            (lambda () (setq-local devdocs-current-docs '("django_rest_framework" "django~3.2"))))
-  (add-hook 'php-mode-hook
-            (lambda () (setq-local devdocs-current-docs '("laravel~8"))))
-  :bind ("C-c o D" . my/devdocs-lookup))
 
 (provide 'my-langs)

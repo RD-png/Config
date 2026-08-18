@@ -152,6 +152,7 @@
 
 (use-package doom-modeline
   :ensure t
+  :defer 1
   :custom
   (doom-modeline-height 10)
   :config
@@ -254,6 +255,7 @@
 
 (use-package minions
   :ensure t
+  :defer 1
   :custom
   (minions-prominent-modes '(flymake-mode))
   :init

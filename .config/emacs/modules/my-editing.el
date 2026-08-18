@@ -34,7 +34,6 @@
   :ensure t
   :bind
   ("C-M-w" . sp-copy-sexp)
-  ("C-M-k" . sp-kill-sexp)
   ("C-M-n" . sp-next-sexp)
   ("C-M-p" . sp-backward-parallel-sexp)
   ("C-M-k" . sp-kill-hybrid-sexp)
@@ -80,7 +79,6 @@
   :ensure t
   :hook (prog-mode . rainbow-delimiters-mode)
   :config
-  (setq show-paren-mode 1)
   (setq rainbow-delimiters-max-face-count 4))
 
 ;; Colors for # colors
@@ -94,11 +92,10 @@
 
 (use-package yasnippet
   :ensure t
-  :demand t
+  :defer
   :custom
   (yas-triggers-in-field t)
   :init
-  (yas-global-mode 1)
   ;; :config
   ;; (defun do-yas-expand ()
   ;;   (let ((yas/fallback-behavior 'return-nil))
@@ -282,7 +279,6 @@
 (global-set-key (kbd "C-M-<backspace>") #'backward-kill-sexp)
 (global-set-key (kbd "C-M-<return>") #'vterm)
 (global-set-key (kbd "C-S-k") #'kill-whole-line)
-(global-set-key (kbd "C-x c e")  #'dashboard-refresh-buffer)
 (global-set-key (kbd "C-/")  #'undo-only)
 (global-set-key (kbd "C-?")  #'undo-redo)
 (global-set-key (kbd "C-S-n")  #'multi-line-next)

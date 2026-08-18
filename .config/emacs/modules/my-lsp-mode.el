@@ -69,10 +69,9 @@
   (lsp-eldoc-enable-hover t)
   (lsp-document-sync-method nil)
   (lsp-signature-auto-activate nil)
-  (lsp-print-performance t)
+  (lsp-print-performance nil)
   (lsp-before-save-edits nil)
   (lsp-headerline-breadcrumb-enable nil)
-  (lsp-signature-render-documentation t)
   (lsp-diagnostics-provider :flymake)
   :init
   (add-hook 'orderless-style-dispatchers #'my/orderless-dispatch-flex-first nil 'local)

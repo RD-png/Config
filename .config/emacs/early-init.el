@@ -2,15 +2,12 @@
 
 (setq gc-cons-percentage 0.5
       gc-cons-threshold (* 128 1024 1024))
-(setq native-comp-deferred-compilation nil)
-(setq package-enable-at-startup nil)
-(setq load-prefer-newer noninteractive)
+(setq native-comp-jit-compilation t)
 (setq inhibit-x-resources t)
 (setq x-gtk-use-system-tooltips t)
 
 (setq package-enable-at-startup nil
-      package-quickstart nil
-      load-prefer-newer t)
+      package-quickstart nil)
 
 (unless (or (daemonp) noninteractive)
   (let ((old-file-name-handler-alist file-name-handler-alist))

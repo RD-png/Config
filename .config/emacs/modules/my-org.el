@@ -192,6 +192,7 @@
 
 (use-package org-modern
   :ensure t
+  :hook (org-mode)
   :config
   (setq line-spacing 0.2)
   (setq org-modern-star '("◉" "✳"))
@@ -218,9 +219,7 @@
    org-agenda-current-time-string
    "⭠ now ─────────────────────────────────────────────────")
   (add-hook 'org-mode-hook #'org-modern-mode)
-  (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
-  :init
-  (global-org-modern-mode))
+  (add-hook 'org-agenda-finalize-hook #'org-modern-agenda))
 
 (use-package org-roam
   :ensure t

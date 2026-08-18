@@ -91,7 +91,6 @@
 (require 'my-lsp-mode)
 ;; (require 'my-eglot)
 (require 'my-langs)
-(require 'my-workspaces)
 ;; (require 'my-perspective)
 (require 'my-workflow)
 (require 'my-editing)
@@ -100,5 +99,6 @@
 (require 'my-vterm)
 (require 'my-helpers)
 (require 'my-theme)
+(require 'my-workspaces)
 
 (elpaca-wait)

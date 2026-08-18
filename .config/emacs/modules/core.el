@@ -17,7 +17,6 @@
       system-uses-terminfo nil
       backup-inhibited t
       auto-save-default nil
-      initial-scratch-message ""
       require-final-newline t)
 (global-subword-mode 1)
 
@@ -127,7 +126,6 @@ possible."
 (setq-default truncate-lines t)
 (setq truncate-partial-width-windows nil)
 (setq sentence-end-double-space nil)
-(setq require-final-newline t)
 (add-hook 'text-mode-hook #'visual-line-mode)
 
 
@@ -145,13 +143,11 @@ possible."
          :map dired-mode-map
          ("q" . dired-up-directory))
   :custom
-  ((dired-listing-switches "-AGFhlv --group-directories-first")
-   (dired-recursive-copies t))
+  ((dired-listing-switches "-AGFhlv --group-directories-first"))
   :config
   ;; (setf dired-kill-when-opening-new-dired-buffer t)
   (setq dired-recursive-copies 'always
         dired-recursive-deletes 'always
-        delete-by-moving-to-trash t
         dired-hide-details-hide-symlink-targets nil))
 
 (use-package recentf
@@ -166,7 +162,7 @@ possible."
   (defun my/recentf-file-truename (file)
     (if (or (not (file-remote-p file))
             (equal "sudo" (file-remote-p file 'method)))
-        (abbreviate-file-name (file-truename (tramp-file-name-localname tfile)))
+        (abbreviate-file-name (file-truename (tramp-file-name-localname file)))
       file))
   (add-to-list 'recentf-filename-handlers #'my/recentf-file-truename)
   (add-to-list 'recentf-filename-handlers #'substring-no-properties)
@@ -228,10 +224,9 @@ possible."
   :init
   (add-hook 'Info-selection-hook 'info-colors-fontify-node))
 
-(use-package exec-path-from-shell
-  :ensure t
-  :init
-  (exec-path-from-shell-initialize))
+(unless (daemonp)
+  (setq exec-path (append (split-string (getenv "PATH") path-separator nil)
+                          (list exec-directory))))
 
 (use-package direnv
   :ensure t
